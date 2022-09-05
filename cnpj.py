@@ -11,19 +11,17 @@ class Cnpj:
 
     def valida_cnpj(self, cnpj):
         if len(cnpj) == 14:
-            valido = CNPJ()
-            return valido.validate(cnpj)
+            objeto = CNPJ()
+            return objeto.validate(cnpj)
         else:
             raise ValueError("Deve conter 14 dígitos.")
 
     def formata_cnpj(self):
-        mascara = CNPJ()
-        return mascara.mask(self.cnpj)
+        objeto = CNPJ()
+        return objeto.mask(self.cnpj)
 
     def __str__(self):
         return self.formata_cnpj()
-
-
 
 
 
