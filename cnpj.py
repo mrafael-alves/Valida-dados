@@ -1,6 +1,6 @@
 from validate_docbr import CNPJ
 
-
+# Concrete Creator de Fatory Documento
 class Cnpj:
     def __init__(self, cnpj):
         cnpj = str(cnpj)
@@ -10,11 +10,8 @@ class Cnpj:
             raise ValueError("CNPJ inválido.")
 
     def valida_cnpj(self, cnpj):
-        if len(cnpj) == 14:
-            objeto = CNPJ()
-            return objeto.validate(cnpj)
-        else:
-            raise ValueError("Deve conter 14 dígitos.")
+            valido = CNPJ()
+            return valido.validate(cnpj)
 
     def formata_cnpj(self):
         objeto = CNPJ()
@@ -22,7 +19,6 @@ class Cnpj:
 
     def __str__(self):
         return self.formata_cnpj()
-
 
 
 
