@@ -1,3 +1,6 @@
+import re
+
+
 class Telefone:
     def __init__(self, numero):
         numero = str(numero)
@@ -8,7 +11,9 @@ class Telefone:
             raise ValueError("Telefone inválido.")
 
     def valida_tel(self, numero):
-        if len(numero) == 10 or len(numero) == 11:
+        padrao = "[0-9]{2}[0-9]{4,5}[0-9]{4}"
+        busca = re.search(padrao, numero)
+        if busca:
             return True
         else:
             return False
