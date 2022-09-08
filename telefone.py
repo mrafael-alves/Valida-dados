@@ -11,26 +11,23 @@ class Telefone:
             raise ValueError("Telefone inválido.")
 
     def valida_tel(self, numero):
-        padrao = "[0-9]{2}[0-9]{4,5}[0-9]{4}"
-        busca = re.search(padrao, numero)
+        # iii (ddd) xxxx - wwwww
+        padrao = "([0-9]{2,3})?([0-9]{2})([0-9]{4,5})([0-9]{4})"
+        busca = re.findall(padrao, numero)
         if busca:
-            return True
+                return True
         else:
             return False
 
     def formata_tel(self):
-        if len(self.numero) == 11:
-            return '({}){}-{}'.format(
-                self.numero[:2],
-                self.numero[2:7],
-                self.numero[7:]
-            )
-        else:
-            return '({}){}-{}'.format(
-                self.numero[:2],
-                self.numero[2:6],
-                self.numero[6:]
-            )
+        padrao = "([0-9]{2,3})?([0-9]{2})([0-9]{4,5})([0-9]{4})"
+        busca = re.search(padrao, self.numero)
+        return "+{}({}){}-{}".format(
+            busca.group(1),
+            busca.group(2),
+            busca.group(3),
+            busca.group(4)
+        )
 
     def __str__(self):
         return self.formata_tel()
