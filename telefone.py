@@ -10,12 +10,15 @@ class Telefone:
         else:
             raise ValueError("Telefone inválido.")
 
+    def __str__(self):
+        return self.formata_tel()
+
     def valida_tel(self, numero):
         # Formato: iii (ddd) xxxx - wwwww
         padrao = "([0-9]{2,3})?([0-9]{2})([0-9]{4,5})([0-9]{4})"
         busca = re.findall(padrao, numero)
         if busca:
-                return True
+            return True
         else:
             return False
 
@@ -28,6 +31,3 @@ class Telefone:
             busca.group(3),
             busca.group(4)
         )
-
-    def __str__(self):
-        return self.formata_tel()

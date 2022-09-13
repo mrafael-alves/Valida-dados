@@ -1,6 +1,5 @@
-from telefone import Telefone
+from datas import Datas
 
 
-telefone = '05561902398498'
-obj = Telefone(telefone)
-print(obj)
+data = Datas()
+print(data)
