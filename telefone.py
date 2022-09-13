@@ -11,7 +11,7 @@ class Telefone:
             raise ValueError("Telefone inválido.")
 
     def valida_tel(self, numero):
-        # iii (ddd) xxxx - wwwww
+        # Formato: iii (ddd) xxxx - wwwww
         padrao = "([0-9]{2,3})?([0-9]{2})([0-9]{4,5})([0-9]{4})"
         busca = re.findall(padrao, numero)
         if busca:
