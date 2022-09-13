@@ -1,4 +1,5 @@
-from datetime import datetime
+from datetime import datetime, timedelta
+
 
 class Datas:
     def __init__(self):
@@ -13,6 +14,9 @@ class Datas:
         mes = self.data_cadastro.month - 1
         return lista_meses[mes]
 
+    def __str__(self):
+        return self.formata_data()
+
     def dia_semana(self):
         lista_semana = [
             'Segunda', 'Terça', 'Quarta', 'Quinta',
@@ -26,5 +30,5 @@ class Datas:
         formatado = self.data_cadastro.strftime('%d/%m/%Y %H:%M')
         return formatado
 
-    def __str__(self):
-        return self.formata_data()
+    def tempo_cadastro(self):
+        return datetime.today() - self.data_cadastro
