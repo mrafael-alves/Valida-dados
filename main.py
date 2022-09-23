@@ -1,5 +1,5 @@
-from datas import Datas
+from cep import Cep
 
-
-data = Datas()
-print(data)
+cep = 50628952
+obj = Cep(cep)
+print(obj)
