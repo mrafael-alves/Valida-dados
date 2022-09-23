@@ -1,3 +1,6 @@
+import requests
+
+
 class Cep:
     def __init__(self, cep):
         cep = str(cep)
@@ -17,3 +20,14 @@ class Cep:
 
     def formata_cep(self):
         return "{}-{}".format(self.cep[:5], self.cep[5:])
+
+    def endereco_completo(self):
+        url = 'https://viacep.com.br/ws/{}/json/'.format(self.cep)
+        r = requests.get(url)
+        saida = r.json()
+        return (
+            saida['logradouro'],
+            saida['bairro'],
+            saida['localidade'],
+            saida['uf']
+        )
